@@ -1,7 +1,3 @@
-// Pour le test HelloAnalytics.html :
-// view ID => 188331003
-// client ID => 315451096739-f5q6rp31jm5db9f4ec5fflq7g793db0m.apps.googleusercontent.com
-
 require("dotenv").config();
 
 const bodyParser = require("body-parser");
@@ -76,7 +72,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 // Enable authentication using session + passport
 app.use(
   session({
-    secret: "irongenerator",
+    secret: process.env.SESSION_SECRET, 
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
